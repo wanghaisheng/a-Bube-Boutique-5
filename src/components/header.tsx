@@ -1,9 +1,12 @@
 import SubHeader from "./subheader";
 import { IoIosSearch } from "react-icons/io";
 import { IoPersonOutline, IoBagHandleOutline } from "react-icons/io5";
+import { FaBars } from "react-icons/fa6";
 import NavHeader from "./navheader";
+import { useState } from "react";
 
 export default function Header() {
+    const [show, setShow] = useState(true)
   return (
     <header className="w-full">
       <SubHeader />
@@ -14,7 +17,12 @@ export default function Header() {
             color="#000"
             className="cursor-pointer hidden lg:block"
           />
-          <div>
+          <div className="flex items-center gap-x-8 lg:gap-x-0">
+            <FaBars
+              size={24}
+              color="#000"
+              className="cursor-pointer block lg:hidden"
+            />
             <h1 className="text-4xl font-bold text-black cursor-pointer">
               Bube
             </h1>

@@ -3,7 +3,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
 
 export default function NavHeader() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div className="w-full hidden lg:flex">
       <ul className="w-[50%] mx-auto flex justify-between items-end">

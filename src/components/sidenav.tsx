@@ -1,6 +1,9 @@
+"use client";
 import { IoPersonOutline } from "react-icons/io5";
-import { FaFacebookF, FaYoutube } from "react-icons/fa6";
+import { FaFacebookF, FaYoutube, FaArrowRightLong } from "react-icons/fa6";
 import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { useState } from "react";
+import ProductSideNav from "./productsidenav";
 
 export default function SideNav({
   show,
@@ -9,6 +12,8 @@ export default function SideNav({
   show: boolean;
   toggle: () => void;
 }) {
+  const [showProductNav, setShowProductNav] = useState(false);
+
   return (
     <div className={`fixed z-50 h-[85vh] sm:h-[90vh] w-full`}>
       <div className="relative w-full h-full">
@@ -24,14 +29,30 @@ export default function SideNav({
             show ? "translate-x-0" : "-translate-x-[500px]"
           }`}
         >
-          <ul className="py-8 px-6 space-y-6">
-            <li className="text-lg">Products</li>
-            <li className="text-lg">Last Call</li>
-            <li className="text-lg">Social Responsibility</li>
-            <li className="text-lg">Concept</li>
-            <li className="text-lg">FAQ</li>
-            <li className="text-lg">How to find your ring size</li>
+          <ul className={`py-8 ${showProductNav ? "hidden" : "block"}`}>
+            <li className="text-lg px-6 py-2 hover:bg-gray-100">
+              <div
+                className="flex items-center justify-between"
+                onClick={() => setShowProductNav(true)}
+              >
+                <p>Products</p>
+                <FaArrowRightLong size={15} />
+              </div>
+            </li>
+            <li className="text-lg px-6 py-2 hover:bg-gray-100">Last Call</li>
+            <li className="text-lg px-6 py-2 hover:bg-gray-100">
+              Social Responsibility
+            </li>
+            <li className="text-lg px-6 py-2 hover:bg-gray-100">Concept</li>
+            <li className="text-lg px-6 py-2 hover:bg-gray-100">FAQ</li>
+            <li className="text-lg px-6 py-2 hover:bg-gray-100">
+              How to find your ring size
+            </li>
           </ul>
+          <ProductSideNav
+            showProductNav={showProductNav}
+            setShowProductNav={setShowProductNav}
+          />
 
           <div className="py-8 px-6 space-y-8 sm:space-y-0 bg-gray-100">
             <div className="flex gap-2 items-center sm:hidden">

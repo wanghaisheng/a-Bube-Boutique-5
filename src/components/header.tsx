@@ -18,7 +18,7 @@ export default function Header() {
     <header className="w-full">
       <SubHeader />
       <nav className="py-6 space-y-6">
-        <div className=" w-[95%] lg:w-[70%] mx-auto flex justify-between">
+        <div className="w-[90%] sm:w-[95%] lg:w-[70%] mx-auto flex justify-between">
           <IoIosSearch
             size={24}
             color="#000"

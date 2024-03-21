@@ -1,12 +1,19 @@
+"use client";
 import SubHeader from "./subheader";
-import { IoIosSearch } from "react-icons/io";
+import { IoIosSearch, IoMdClose } from "react-icons/io";
 import { IoPersonOutline, IoBagHandleOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa6";
 import NavHeader from "./navheader";
+import SideNav from "./sidenav";
 import { useState } from "react";
 
 export default function Header() {
-    const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false);
+
+  const toggle = () => {
+    setShow(!show)
+  }
+
   return (
     <header className="w-full">
       <SubHeader />
@@ -18,16 +25,26 @@ export default function Header() {
             className="cursor-pointer hidden lg:block"
           />
           <div className="flex items-center gap-x-8 lg:gap-x-0">
-            <FaBars
-              size={24}
-              color="#000"
-              className="cursor-pointer block lg:hidden"
-            />
+            <div onClick={toggle}>
+              {!show ? (
+                <FaBars
+                  size={24}
+                  color="#000"
+                  className="cursor-pointer block lg:hidden"
+                />
+              ) : (
+                <IoMdClose
+                  size={28}
+                  color="#000"
+                  className="cursor-pointer block lg:hidden"
+                />
+              )}
+            </div>
             <h1 className="text-4xl font-bold text-black cursor-pointer">
               Bube
             </h1>
           </div>
-          <div className="flex items-end gap-5">
+          <div className="flex items-end gap-3 sm:gap-5">
             <IoIosSearch
               size={24}
               color="#000"
@@ -36,7 +53,7 @@ export default function Header() {
             <IoPersonOutline
               size={24}
               color="#000"
-              className="cursor-pointer"
+              className="cursor-pointer hidden sm:block"
             />
             <div className="relative cursor-pointer">
               <IoBagHandleOutline size={24} color="#000" />
@@ -48,6 +65,7 @@ export default function Header() {
         </div>
         <NavHeader />
       </nav>
+      <SideNav show={show} toggle={toggle} />
     </header>
   );
 }

@@ -11,8 +11,8 @@ export default function Header() {
   const [show, setShow] = useState(false);
 
   const toggle = () => {
-    setShow(!show)
-  }
+    setShow(!show);
+  };
 
   return (
     <header className="w-full">

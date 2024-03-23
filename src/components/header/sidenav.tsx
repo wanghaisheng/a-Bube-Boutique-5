@@ -15,13 +15,13 @@ export default function SideNav({
   const [showProductNav, setShowProductNav] = useState(false);
 
   return (
-    <div className={`fixed z-50 h-[85vh] sm:h-[90vh] w-full`}>
-      <div className="relative w-full h-full">
+    <div className={`fixed z-50 h-[85vh] sm:h-[90vh] w-full ${showProductNav ? "block sm:hidden" : "hidden"}`}>
+      <div className={`relative w-full h-full ${showProductNav ? "block sm:hidden" : "hidden"}`}>
         <div
-          className={`bg-black  absolute top-0 right-0 left-0 bottom-0 -z-[100] ${
+          className={`bg-black absolute top-0 right-0 left-0 bottom-0 -z-[100] ${
             show
-              ? "bg-opacity-0 sm:bg-opacity-50 sm:backdrop-blur"
-              : "bg-opacity-0"
+              ? "bg-opacity-0 block sm:bg-opacity-50 sm:hidden sm:backdrop-blur"
+              : "bg-opacity-0 hidden"
           }`}
         ></div>
         <div

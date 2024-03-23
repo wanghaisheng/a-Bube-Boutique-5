@@ -16,8 +16,8 @@ export default function NavHeader() {
               <span>Products</span> <IoIosArrowDown size={15} className={`transition-all duration-300 ${open ? "rotate-180": ""}`} />
             </div>
             <ul
-              className={`w-48 absolute top-8 py-4 gap-y-3 border-[1px] border-[#c8c6c6] ${
-                open ? "flex flex-col" : "hidden"
+              className={`w-48 absolute top-8 py-4 gap-y-3 border-[1px] bg-white border-[#c8c6c6] ${
+                open ? "flex flex-col z-50" : "hidden"
               }`}
             >
               <li className="px-8 text-sm">Stargirl</li>

@@ -15,19 +15,21 @@ export default function SideNav({
   const [showProductNav, setShowProductNav] = useState(false);
 
   return (
-    <div className={`fixed z-50 h-[85vh] sm:h-[90vh] w-full ${showProductNav ? "block sm:hidden" : "hidden"}`}>
-      <div className={`relative w-full h-full ${showProductNav ? "block sm:hidden" : "hidden"}`}>
+    <div className={`fixed z-50 h-[85vh] sm:h-[90vh] w-full ${show ? "block lg:hidden" : "hidden"}`}>
+      <div className={`relative w-full h-full ${show ? "block lg:hidden" : "hidden"}`}>
         <div
-          className={`bg-black absolute top-0 right-0 left-0 bottom-0 -z-[100] ${
+          className={`bg-black absolute top-0 right-0 left-0 bottom-0 ${
             show
-              ? "bg-opacity-0 block sm:bg-opacity-50 sm:hidden sm:backdrop-blur"
+              ? "bg-opacity-0 block sm:bg-opacity-30 lg:hidden sm:backdrop-blur"
               : "bg-opacity-0 hidden"
           }`}
+          onClick={toggle}
         ></div>
         <div
-          className={`w-full overflow-auto flex flex-col justify-between sm:w-[400px] bg-white h-full border-[#d4d1d1] border-[0.5px] z-[100] ease-linear duration-200 ${
+          className={`w-full overflow-auto flex flex-col justify-between sm:w-[400px] bg-white h-full border-[#d4d1d1] border-[0.5px] z-[200] ease-linear duration-200 ${
             show ? "translate-x-0" : "-translate-x-[500px]"
           }`}
+          style={{zIndex: 500}}
         >
           <ul className={`py-8 ${showProductNav ? "hidden" : "block"}`}>
             <li className="text-lg px-6 py-2 hover:bg-gray-100">

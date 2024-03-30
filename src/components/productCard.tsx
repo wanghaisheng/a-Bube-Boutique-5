@@ -13,7 +13,7 @@ export default function ProductCard({
 }: {
   newInItems: NewInItems;
 }) {
-  const { name, images, imageTest, slug, cardText, description } = newInItems;
+  const { name, images, cardText, } = newInItems;
 
   return (
     <div className="col-span-4 bg-gray-100">

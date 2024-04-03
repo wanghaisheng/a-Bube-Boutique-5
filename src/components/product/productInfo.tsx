@@ -6,13 +6,17 @@ import { NewInItems } from "../../../typings";
 export default function ProductInfo({ item }: { item: NewInItems }) {
   const [value, setValue] = useState(1);
   const [showDesc, setShowDesc] = useState(false);
+  const [showSpec, setShowSpec] = useState(false);
+  const [showShip, setShowShip] = useState(false);
   return (
-    <div className="basis-[50%]">
+    <div className="w-full lg:w-[50%]">
       <div className="space-y-2">
         <p className="text-red-600 font-semibold">SALE</p>
-        <h4 className="text-5xl font-medium">BUBE {item.name}</h4>
-        <p className="text-xl">&#8358; {item.price.toLocaleString()}</p>
-        <p className="text-sm">
+        <h4 className=" text-3xl sm:text-5xl font-medium">BUBE {item.name}</h4>
+        <p className="text-2xl lg:text-xl">
+          &#8358; {item.price.toLocaleString()}
+        </p>
+        <p className="text-normal lg:text-sm">
           Tax included. <span className="underline">Shipping</span> calculated
           at checkout.
         </p>
@@ -70,24 +74,65 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
         </div>
       </div>
       <div className="w-full mt-8">
-        <button className="border-[1px] border-black hover:ring-black hover:ring-[1px] w-full py-2 duration-200 transition-all ease-linear">
+        <button className="border-[1px] border-black hover:ring-black hover:ring-[1px] w-full py-3 lg:py-2 duration-200 transition-all ease-linear">
           Add To Cart
         </button>
       </div>
-      <div className="mt-8 w-full border-b-[1px] border-stone-500 pb-2 space-y-2">
-        <div
-          className="flex justify-between items-center cursor-pointer"
-          onClick={() => setShowDesc(!showDesc)}
-        >
-          <p className="text-lg font-medium">Description</p>
-          <FaAngleDown
-            size={15}
-            className={`transition-all duration-150 ease-linear ${showDesc ? "rotate-180" : "rotate-0"}`}
-          />
+      <div className="mt-8 w-full">
+        <div className="w-full border-b-[1px] border-stone-300 py-2 space-y-2">
+          <div
+            className="flex justify-between items-center cursor-pointer"
+            onClick={() => setShowDesc(!showDesc)}
+          >
+            <p className="text-lg font-medium">Description</p>
+            <FaAngleDown
+              size={15}
+              className={`transition-all duration-150 ease-linear ${
+                showDesc ? "rotate-180" : "rotate-0"
+              }`}
+            />
+          </div>
+          <p className={`text-sm px-2 pb-2 ${showDesc ? "block" : "hidden"}`}>
+            {item.description}
+          </p>
         </div>
-        <p className={`text-sm px-2 pb-2 ${showDesc ? "block" : "hidden"}`}>
-          {item.description}
-        </p>
+        <div className="w-full border-b-[1px] border-stone-300 py-2 space-y-2">
+          <div
+            className="flex justify-between items-center cursor-pointer"
+            onClick={() => setShowSpec(!showSpec)}
+          >
+            <p className="text-lg font-medium">Specification</p>
+            <FaAngleDown
+              size={15}
+              className={`transition-all duration-150 ease-linear ${
+                showSpec ? "rotate-180" : "rotate-0"
+              }`}
+            />
+          </div>
+          <p className={`text-sm px-2 pb-2 ${showSpec ? "block" : "hidden"}`}>
+            Materials Constructed in smooth, Italian leather with a spacious
+            cotton lined interior and two internal zip pockets for valuables.
+            Includes a detachable pouch that can be attached internally or
+            externally. Size 26cm (W) x 33.6cm (H) x 16cm (D) Strap drop 25cm
+          </p>
+        </div>
+        <div className="w-full border-b-[1px] border-stone-300 py-2 space-y-2">
+          <div
+            className="flex justify-between items-center cursor-pointer"
+            onClick={() => setShowShip(!showShip)}
+          >
+            <p className="text-lg font-medium">Shipping</p>
+            <FaAngleDown
+              size={15}
+              className={`transition-all duration-150 ease-linear ${
+                showShip ? "rotate-180" : "rotate-0"
+              }`}
+            />
+          </div>
+          <p className={`text-sm px-2 pb-2 ${showShip ? "block" : "hidden"}`}>
+            We offer free shipping accross nigeria for extra fees
+          </p>
+        </div>
       </div>
     </div>
   );

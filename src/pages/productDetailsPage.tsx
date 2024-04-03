@@ -6,9 +6,11 @@ export default async function ProductDetailsPage({ slug }: { slug: string }) {
   const product = await getProduct(slug);
   const item = product[0];
   return (
-    <div className="w-full flex gap-8 py-16">
-      <ProductImages item={item} />
-      <ProductInfo item={item} />
+    <div className=" w-[90%] sm:w-[80%] mx-auto py-10 sm:py-16">
+      <div className="flex flex-col lg:flex-row gap-8">
+        <ProductImages item={item} />
+        <ProductInfo item={item} />
+      </div>
     </div>
   );
 }

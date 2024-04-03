@@ -13,10 +13,17 @@ export const getNewInProducts = async () => {
   //     "url": asset->url
   //   }
 
-  const newInItems: NewInItems[] = await client.fetch(query);
+  const newInItems: NewInItems[] = await client.fetch(query, { cache: "no-store" });
   //   {
-  //     cache: "no-store", added after query to make next not cache"imageTest": imageTest.asset->url,
+  //     cache: "no-store", added after query to make next not cache "imageTest": imageTest.asset->url,
   //   }
 
   return newInItems;
+};
+
+export const getProduct = async (slug: string) => {
+  const query = groq`*[_type == "newIn" && slug == "${slug}"]`;
+
+  const item: NewInItems[] = await client.fetch(query, { cache: "no-store" });
+  return item;
 };

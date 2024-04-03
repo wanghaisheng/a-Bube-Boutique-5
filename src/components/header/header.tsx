@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa6";
 import NavHeader from "./navheader";
 import SideNav from "./sidenav";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Header() {
   const [show, setShow] = useState(false);
@@ -17,7 +18,7 @@ export default function Header() {
   return (
     <header className="w-full">
       <SubHeader />
-      <nav className="py-6 space-y-6">
+      <nav className="py-6 space-y-6 border-b-[0.5px] border-stone-200">
         <div className="w-[90%] sm:w-[95%] lg:w-[70%] mx-auto flex justify-between">
           <IoIosSearch
             size={24}
@@ -40,9 +41,9 @@ export default function Header() {
                 />
               )}
             </div>
-            <h1 className="text-4xl font-bold text-black cursor-pointer">
+            <Link href="/" className="text-4xl font-bold text-black cursor-pointer">
               Bube
-            </h1>
+            </Link>
           </div>
           <div className="flex items-end gap-3 sm:gap-5">
             <IoIosSearch

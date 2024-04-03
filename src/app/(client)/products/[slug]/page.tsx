@@ -6,7 +6,7 @@ export default async function ProductDetail({
   params: { slug: string };
 }) {
   return (
-    <div className="w-[70%] mx-auto">
+    <div className="">
       <ProductDetailsPage slug={params.slug} />
     </div>
   );

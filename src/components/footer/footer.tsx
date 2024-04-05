@@ -129,9 +129,8 @@ export default function Footer() {
       </div>
       <div className="border-t-[1px] border-gray-700 py-6 sm:py-4 lg:py-6">
         <ul className="w-[90%] lg:w-[70%] mx-auto flex flex-wrap justify-center gap-x-8 gap-y-4 sm:gap-8">
-          <li className="liNamest-payment__item">
+          <li>
             <svg
-              className="icon icon--full-color"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
               aria-labelledby="pi-american_express"
@@ -175,9 +174,8 @@ export default function Footer() {
               ></path>
             </svg>
           </li>
-          <li className="list-payment__item">
+          <li>
             <svg
-              className="icon icon--full-color"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
@@ -226,9 +224,8 @@ export default function Footer() {
               </g>
             </svg>
           </li>
-          <li className="list-payment__item">
+          <li>
             <svg
-              className="icon icon--full-color"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
               viewBox="0 0 38 24"
@@ -268,9 +265,8 @@ export default function Footer() {
               ></path>
             </svg>
           </li>
-          <li className="list-payment__item">
+          <li>
             <svg
-              className="icon icon--full-color"
               viewBox="0 0 38 24"
               xmlns="http://www.w3.org/2000/svg"
               width="38"
@@ -295,9 +291,8 @@ export default function Footer() {
               ></path>
             </svg>
           </li>
-          <li className="list-payment__item">
+          <li>
             <svg
-              className="icon icon--full-color"
               viewBox="0 0 38 24"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
@@ -322,9 +317,8 @@ export default function Footer() {
               ></path>
             </svg>
           </li>
-          <li className="list-payment__item">
+          <li>
             <svg
-              className="icon icon--full-color"
               viewBox="0 0 38 24"
               xmlns="http://www.w3.org/2000/svg"
               width="38"
@@ -355,9 +349,8 @@ export default function Footer() {
               ></path>
             </svg>
           </li>
-          <li className="list-payment__item">
+          <li>
             <svg
-              className="icon icon--full-color"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
               viewBox="0 0 38 24"
@@ -381,9 +374,8 @@ export default function Footer() {
               ></path>
             </svg>
           </li>
-          <li className="list-payment__item">
+          <li>
             <svg
-              className="icon icon--full-color"
               viewBox="-36 25 38 24"
               xmlns="http://www.w3.org/2000/svg"
               width="38"
@@ -414,9 +406,8 @@ export default function Footer() {
               ></path>
             </svg>
           </li>
-          <li className="list-payment__item">
+          <li>
             <svg
-              className="icon icon--full-color"
               viewBox="0 0 38 24"
               xmlns="http://www.w3.org/2000/svg"
               role="img"

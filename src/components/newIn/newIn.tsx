@@ -1,4 +1,4 @@
-import ProductCard from "../productCard";
+import ProductCard from "../product/productCard";
 import { getNewInProducts } from "@/queries/getProducts";
 
 // export const revalidate = 60;

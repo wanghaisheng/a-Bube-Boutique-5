@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { NewInItems } from "../../typings";
+import { NewInItems } from "../../../typings";
 
-import { urlForImage } from "../../sanity/lib/image";
+import { urlForImage } from "../../../sanity/lib/image";
 import Link from "next/link";
 
 import { FaArrowRightLong } from "react-icons/fa6";

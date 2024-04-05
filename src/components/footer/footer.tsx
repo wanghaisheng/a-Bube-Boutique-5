@@ -31,8 +31,8 @@ const footerData: FooterType[] = [
 export default function Footer() {
   return (
     <footer className="w-full bg-black text-white">
-      <div className="w-[70%] mx-auto py-12">
-        <div className="flex justify-between">
+      <div className="w-[90%] lg:w-[70%] mx-auto py-8 lg:py-12">
+        <div className="flex flex-col sm:flex-row gap-y-8 sm:gap-y-0 sm:justify-between">
           {footerData.map((item, index) => {
             const { title, links } = item;
             return (
@@ -52,7 +52,7 @@ export default function Footer() {
             );
           })}
         </div>
-        <div className="mt-8 flex justify-between">
+        <div className="mt-8 flex flex-col sm:flex-row gap-y-6 sm:gap-y-0 sm:justify-between">
           <div className="space-y-4">
             <label htmlFor="suscribe" className="text-lg font-semibold">
               Subscribe to our emails
@@ -69,7 +69,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <ul className="flex items-end gap-x-4">
+          <ul className="flex justify-center sm:justify-start items-end gap-x-4">
             <li className="cursor-pointer">
               <svg
                 aria-hidden="true"
@@ -127,8 +127,8 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t-[1px] border-gray-700 py-6">
-        <ul className="w-[70%] mx-auto flex justify-center gap-8">
+      <div className="border-t-[1px] border-gray-700 py-6 sm:py-4 lg:py-6">
+        <ul className="w-[90%] lg:w-[70%] mx-auto flex flex-wrap justify-center gap-x-8 gap-y-4 sm:gap-8">
           <li className="liNamest-payment__item">
             <svg
               className="icon icon--full-color"
@@ -442,7 +442,9 @@ export default function Footer() {
         </ul>
       </div>
       <div>
-        <p className="text-gray-300 text-sm text-center">&copy;{new Date().getFullYear()}, inspired by A-MORE</p>
+        <p className="text-gray-300 text-sm text-center">
+          &copy;{new Date().getFullYear()}, inspired by A-MORE
+        </p>
       </div>
     </footer>
   );

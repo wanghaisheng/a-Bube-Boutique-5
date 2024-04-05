@@ -13,7 +13,7 @@ type SanityBase = {
 //     // Add other properties if necessary
 //   }
 
- interface NewInItems extends SanityBase {
+interface NewInItems extends SanityBase {
   _type: "newIn";
   name: string;
   slug: string;
@@ -23,4 +23,9 @@ type SanityBase = {
   description: string;
   images: Image[];
   imageTest: Image;
+}
+
+interface FooterType {
+  title: string;
+  links: string[];
 }

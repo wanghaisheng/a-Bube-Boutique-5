@@ -29,3 +29,13 @@ interface FooterType {
   title: string;
   links: string[];
 }
+
+interface CartType {
+  id: string;
+  name: string;
+  image: Image;
+  color: string;
+  quantity: number;
+  price: number;
+  total: number;
+}

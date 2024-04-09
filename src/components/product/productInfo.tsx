@@ -2,12 +2,36 @@
 import { FaAngleDown } from "react-icons/fa6";
 import { useState } from "react";
 import { NewInItems } from "../../../typings";
+import { useAppDispatch } from "@/lib/hook";
+import { addToCart } from "@/lib/features/cartSlice";
 
 export default function ProductInfo({ item }: { item: NewInItems }) {
+  const dispatch = useAppDispatch();
   const [value, setValue] = useState(1);
+  const [colorVal, setColorVal] = useState("");
   const [showDesc, setShowDesc] = useState(false);
   const [showSpec, setShowSpec] = useState(false);
   const [showShip, setShowShip] = useState(false);
+  const [error, setError] = useState("");
+
+  const addItemToCart = () => {
+    if (!colorVal) {
+      setError("choose a color");
+      return;
+    }
+    const newItem = {
+      id: item._id,
+      name: item.name,
+      image: item.images[0],
+      color: colorVal,
+      quantity: value,
+      price: item.price,
+      total: value * item.price,
+    };
+    console.log(newItem);
+    dispatch(addToCart(newItem));
+  };
+
   return (
     <div className="w-full lg:w-[50%]">
       <div className="space-y-2">
@@ -27,12 +51,19 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
           {item.colors.map((color, index) => (
             <div
               key={index}
-              className="border-2 text-black w-20 h-10 flex items-center justify-center rounded-full cursor-pointer"
+              className={`border-2 text-black w-20 h-10 flex items-center justify-center rounded-full cursor-pointer ${
+                color === colorVal ? "bg-black text-white" : ""
+              }`}
+              onClick={() => {
+                setColorVal(color);
+                setError("");
+              }}
             >
               <p className="">{color}</p>
             </div>
           ))}
         </div>
+        {error && <span className="text-red-600">{error}</span>}
       </div>
       <div className="space-y-2 mt-4">
         <p className="">Quantity</p>
@@ -55,8 +86,8 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
               viewBox="0 0 10 2"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z"
                 fill="currentColor"
               ></path>
@@ -74,7 +105,10 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
         </div>
       </div>
       <div className="w-full mt-8">
-        <button className="border-[1px] border-black hover:ring-black hover:ring-[1px] w-full py-3 lg:py-2 duration-200 transition-all ease-linear">
+        <button
+          className="border-[1px] border-black hover:ring-black hover:ring-[1px] w-full py-3 lg:py-2 duration-200 transition-all ease-linear"
+          onClick={addItemToCart}
+        >
           Add To Cart
         </button>
       </div>

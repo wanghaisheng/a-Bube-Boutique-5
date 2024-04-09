@@ -4,21 +4,22 @@ import { NewInItems } from "../../typings";
 import { client } from "../../sanity/lib/client";
 
 export const getNewInProducts = async () => {
-  const query = groq`*[_type == "newIn"] {
-    ...,  
-    images
-  }`;
+  try {
+    const query = groq`*[_type == "newIn"] {
+      ...,  
+      images
+    }`;
 
-  //   "images": images[]{
-  //     "url": asset->url
-  //   }
+    const newInItems: NewInItems[] = await client.fetch(query, {
+      cache: "no-store",
+    });
 
-  const newInItems: NewInItems[] = await client.fetch(query, { cache: "no-store" });
-  //   {
-  //     cache: "no-store", added after query to make next not cache "imageTest": imageTest.asset->url,
-  //   }
-
-  return newInItems;
+    return newInItems;
+  } catch (error) {
+    console.error("Error fetching new in products:", error);
+    // You can handle the error here, such as displaying a message to the user or returning a default value
+    return [];
+  }
 };
 
 export const getProduct = async (slug: string) => {

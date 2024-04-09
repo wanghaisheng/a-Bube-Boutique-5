@@ -5,15 +5,23 @@ import { IoPersonOutline, IoBagHandleOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa6";
 import NavHeader from "./navheader";
 import SideNav from "./sidenav";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useAppSelector, useAppDispatch } from "@/lib/hook";
+import { getCartFromLocalStorage } from "@/lib/features/cartSlice";
 
 export default function Header() {
+  const cart = useAppSelector((state) => state.cart.cart);
+  const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
 
   const toggle = () => {
     setShow(!show);
   };
+
+  useEffect(() => {
+    dispatch(getCartFromLocalStorage());
+  }, []);
 
   return (
     <header className="w-full">
@@ -41,7 +49,10 @@ export default function Header() {
                 />
               )}
             </div>
-            <Link href="/" className="text-4xl font-bold text-black cursor-pointer">
+            <Link
+              href="/"
+              className="text-4xl font-bold text-black cursor-pointer"
+            >
               Bube
             </Link>
           </div>
@@ -58,9 +69,11 @@ export default function Header() {
             />
             <div className="relative cursor-pointer">
               <IoBagHandleOutline size={24} color="#000" />
-              <span className="text-white bg-black h-4 w-4 rounded-full text-xs flex justify-center items-center absolute -bottom-[4px] -right-1">
-                3
-              </span>
+              {cart.length > 0 && (
+                <span className="text-white bg-black h-4 w-4 rounded-full text-xs flex justify-center items-center absolute -bottom-[4px] -right-1">
+                  {cart.length}
+                </span>
+              )}
             </div>
           </div>
         </div>

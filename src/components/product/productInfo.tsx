@@ -30,6 +30,7 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
     };
     console.log(newItem);
     dispatch(addToCart(newItem));
+    setValue(1);
   };
 
   return (

@@ -17,11 +17,13 @@ export const cartSlice = createSlice({
     addToCart(state, action: PayloadAction<CartType>) {
       console.log("Working");
       const cartItemExist = state.cart.find((item) =>
-        item.id === action.payload.id ? item : null
+        item.color === action.payload.color ? item : null
       );
+      console.log("cartItemExits", cartItemExist);
+      console.log("action payload", action.payload);
       if (cartItemExist) {
         const updatedCartItem = state.cart.map((item) =>
-          item.id === cartItemExist.id
+          item.color === cartItemExist.color
             ? {
                 ...item,
                 quantity: item.quantity + action.payload.quantity,
@@ -35,15 +37,15 @@ export const cartSlice = createSlice({
         state.cart = [...state.cart, action.payload];
         console.log("Single", state.cart);
       }
-      localStorage.setItem("cartLocal", JSON.stringify(state.cart));
+      //   localStorage.setItem("cartLocal", JSON.stringify(state.cart));
     },
     getCartFromLocalStorage(state) {
-      const cartLocal = localStorage.getItem("cartLocal");
-      if (cartLocal !== null) {
-        state.cart = JSON.parse(cartLocal);
-      } else {
-        state.cart = [];
-      }
+      //   const cartLocal = localStorage.getItem("cartLocal");
+      //   if (cartLocal !== null) {
+      //     state.cart = JSON.parse(cartLocal);
+      //   } else {
+      //     state.cart = [];
+      //   }
     },
   },
 });

@@ -37,15 +37,15 @@ export const cartSlice = createSlice({
         state.cart = [...state.cart, action.payload];
         console.log("Single", state.cart);
       }
-      //   localStorage.setItem("cartLocal", JSON.stringify(state.cart));
+        localStorage.setItem("cartLocal", JSON.stringify(state.cart));
     },
     getCartFromLocalStorage(state) {
-      //   const cartLocal = localStorage.getItem("cartLocal");
-      //   if (cartLocal !== null) {
-      //     state.cart = JSON.parse(cartLocal);
-      //   } else {
-      //     state.cart = [];
-      //   }
+        const cartLocal = localStorage.getItem("cartLocal");
+        if (cartLocal !== null) {
+          state.cart = JSON.parse(cartLocal);
+        } else {
+          state.cart = [];
+        }
     },
   },
 });

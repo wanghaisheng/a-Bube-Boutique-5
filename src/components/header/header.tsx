@@ -67,14 +67,14 @@ export default function Header() {
               color="#000"
               className="cursor-pointer hidden sm:block"
             />
-            <div className="relative cursor-pointer">
+            <Link href="/cart" className="relative cursor-pointer">
               <IoBagHandleOutline size={24} color="#000" />
               {cart.length > 0 && (
                 <span className="text-white bg-black h-4 w-4 rounded-full text-xs flex justify-center items-center absolute -bottom-[4px] -right-1">
                   {cart.length}
                 </span>
               )}
-            </div>
+            </Link>
           </div>
         </div>
         <NavHeader />

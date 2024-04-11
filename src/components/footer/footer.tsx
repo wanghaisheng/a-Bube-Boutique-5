@@ -10,7 +10,7 @@ const footerData: FooterType[] = [
     title: "Legal Area",
     links: [
       "Bube Giveaway",
-      "Pravcy Policy",
+      "Privacy Policy",
       "Cookie Policy",
       "Cookies Preferences",
       "Terms & Conditions",

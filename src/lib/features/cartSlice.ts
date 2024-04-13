@@ -66,12 +66,25 @@ export const cartSlice = createSlice({
           : item;
       });
       state.cart = newCart;
-      console.log("CART", state.cart)
+      console.log("CART", state.cart);
+      cartSlice.caseReducers.setCartToLocalStorage(state);
+    },
+    deleteItem(state, action: PayloadAction<{ id: string; color: string }>) {
+      const { id, color } = action.payload;
+      const newCart = state.cart.filter(
+        (item) => !(item.id === id && item.color === color)
+      );
+      state.cart = newCart;
+      console.log("CART", state.cart);
       cartSlice.caseReducers.setCartToLocalStorage(state);
     },
   },
 });
 
-export const { addToCart, getCartFromLocalStorage, setItemQuantity } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  getCartFromLocalStorage,
+  setItemQuantity,
+  deleteItem,
+} = cartSlice.actions;
 export default cartSlice.reducer;

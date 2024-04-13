@@ -37,18 +37,41 @@ export const cartSlice = createSlice({
         state.cart = [...state.cart, action.payload];
         console.log("Single", state.cart);
       }
-        localStorage.setItem("cartLocal", JSON.stringify(state.cart));
+      cartSlice.caseReducers.setCartToLocalStorage(state);
+    },
+    setCartToLocalStorage(state) {
+      localStorage.setItem("cartLocal", JSON.stringify(state.cart));
     },
     getCartFromLocalStorage(state) {
-        const cartLocal = localStorage.getItem("cartLocal");
-        if (cartLocal !== null) {
-          state.cart = JSON.parse(cartLocal);
-        } else {
-          state.cart = [];
-        }
+      const cartLocal = localStorage.getItem("cartLocal");
+      if (cartLocal !== null) {
+        state.cart = JSON.parse(cartLocal);
+      } else {
+        state.cart = [];
+      }
+    },
+    setItemQuantity(
+      state,
+      action: PayloadAction<{ id: string; color: string; quantity: number }>
+    ) {
+      console.log("work work");
+      const newCart = state.cart.map((item) => {
+        return item.id === action.payload.id &&
+          item.color === action.payload.color
+          ? {
+              ...item,
+              quantity: action.payload.quantity,
+              total: action.payload.quantity * item.price,
+            }
+          : item;
+      });
+      state.cart = newCart;
+      console.log("CART", state.cart)
+      cartSlice.caseReducers.setCartToLocalStorage(state);
     },
   },
 });
 
-export const { addToCart, getCartFromLocalStorage } = cartSlice.actions;
+export const { addToCart, getCartFromLocalStorage, setItemQuantity } =
+  cartSlice.actions;
 export default cartSlice.reducer;

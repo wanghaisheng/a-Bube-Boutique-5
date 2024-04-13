@@ -4,6 +4,7 @@ import { useState } from "react";
 import { NewInItems } from "../../../typings";
 import { useAppDispatch } from "@/lib/hook";
 import { addToCart } from "@/lib/features/cartSlice";
+import Quantity from "./quantity";
 
 export default function ProductInfo({ item }: { item: NewInItems }) {
   const dispatch = useAppDispatch();
@@ -13,6 +14,15 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
   const [showSpec, setShowSpec] = useState(false);
   const [showShip, setShowShip] = useState(false);
   const [error, setError] = useState("");
+
+  const changeValue = (action: string) => {
+    if (action === "increase") {
+      setValue(value + 1);
+    } else {
+      if (value === 1) return;
+      setValue(value - 1);
+    }
+  };
 
   const addItemToCart = () => {
     if (!colorVal) {
@@ -68,42 +78,7 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
       </div>
       <div className="space-y-2 mt-4">
         <p className="">Quantity</p>
-        <div className="w-40 h-12 flex border-[1px] border-black">
-          <button
-            className={`basis-[50%] w-full h-full flex justify-center items-center ${
-              value === 1 ? "cursor-not-allowed" : "cursor-pointer"
-            }`}
-            onClick={() => {
-              if (value === 1) return;
-              setValue(value - 1);
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              focusable="false"
-              className="w-4"
-              fill="none"
-              viewBox="0 0 10 2"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </button>
-          <div className="basis-[50%] flex justify-center items-center">
-            <span className="text-lg">{value}</span>
-          </div>
-          <button
-            className="text-3xl basis-[50%] w-full h-full"
-            onClick={() => setValue(value + 1)}
-          >
-            +
-          </button>
-        </div>
+        <Quantity value={value} changeValue={changeValue} />
       </div>
       <div className="w-full mt-8">
         <button

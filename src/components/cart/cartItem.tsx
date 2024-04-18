@@ -35,23 +35,23 @@ export default function CartItem({ item }: { item: CartType }) {
 
   return (
     <div className="grid grid-cols-12 border-b-[1px] border-gray-200">
-      <div className="relative w-full h-[6rem] row-span-2 col-span-1">
+      <div className="relative w-full sm:w-[7rem] lg:w-full h-[6rem] row-span-2 col-span-3 sm:col-span-2 lg:col-span-1">
         <Image src={urlForImage(item.image)} alt={item.name} fill />
       </div>
-      <div className="col-span-9 grid grid-cols-12">
-        <div className="col-span-8 p-4">
-          <p>BUBE {item.name}</p>
+      <div className="col-span-7 sm:col-span-8 lg:col-span-9 sm:grid sm:grid-cols-12">
+        <div className="sm:col-span-7 lg:col-span-8 py-0 px-4 sm:p-4">
+          <p className="text-lg">BUBE {item.name}</p>
           <p>&#8358; {item.price.toLocaleString()}</p>
-          <p>Color: {item.color}</p>
+          <p className="text-sm">Color: {item.color}</p>
         </div>
-        <div className="col-span-4 p-4 flex items-center gap-x-4">
+        <div className="sm:col-span-5 lg:col-span-4 p-4 flex items-center gap-x-6 lg:gap-x-4">
           <Quantity value={value} changeValue={changeValue} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
             aria-hidden="true"
             focusable="false"
-            className="w-5 h-5 cursor-pointer"
+            className="w-6 h-6 sm:w-5 sm:h-5 cursor-pointer"
             onClick={() =>
               dispatch(deleteItem({ id: item.id, color: item.color }))
             }
@@ -67,7 +67,7 @@ export default function CartItem({ item }: { item: CartType }) {
           </svg>
         </div>
       </div>
-      <div className="col-span-2 p-4">
+      <div className="col-span-2 sm:place-content-center text-right whitespace-nowrap">
         &#8358; {item.total.toLocaleString()}
       </div>
     </div>

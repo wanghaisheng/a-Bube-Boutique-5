@@ -4,10 +4,12 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 interface InitialState {
   cart: CartType[];
+  total: number;
 }
 
 const initialState: InitialState = {
   cart: [],
+  total: 0,
 };
 
 export const cartSlice = createSlice({
@@ -38,6 +40,7 @@ export const cartSlice = createSlice({
         console.log("Single", state.cart);
       }
       cartSlice.caseReducers.setCartToLocalStorage(state);
+      cartSlice.caseReducers.setTotal(state);
     },
     setCartToLocalStorage(state) {
       localStorage.setItem("cartLocal", JSON.stringify(state.cart));
@@ -46,6 +49,7 @@ export const cartSlice = createSlice({
       const cartLocal = localStorage.getItem("cartLocal");
       if (cartLocal !== null) {
         state.cart = JSON.parse(cartLocal);
+        cartSlice.caseReducers.setTotal(state);
       } else {
         state.cart = [];
       }
@@ -68,6 +72,7 @@ export const cartSlice = createSlice({
       state.cart = newCart;
       console.log("CART", state.cart);
       cartSlice.caseReducers.setCartToLocalStorage(state);
+      cartSlice.caseReducers.setTotal(state);
     },
     deleteItem(state, action: PayloadAction<{ id: string; color: string }>) {
       const { id, color } = action.payload;
@@ -77,6 +82,13 @@ export const cartSlice = createSlice({
       state.cart = newCart;
       console.log("CART", state.cart);
       cartSlice.caseReducers.setCartToLocalStorage(state);
+      cartSlice.caseReducers.setTotal(state);
+    },
+    setTotal(state) {
+      const total = state.cart.reduce((acc, cur) => {
+        return (acc += cur.total);
+      }, 0);
+      state.total = total;
     },
   },
 });

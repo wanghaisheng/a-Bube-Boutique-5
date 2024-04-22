@@ -1,5 +1,5 @@
 import Hero from "@/components/hero/hero";
-import NewIn from "@/components/newIn/newIn";
+import NewIn from "@/components/home/newIn";
 
 export default function HomePage() {
   return (

@@ -434,7 +434,7 @@ export default function Footer() {
       </div>
       <div>
         <p className="text-gray-300 text-sm text-center">
-          &copy;{new Date().getFullYear()}, inspired by A-MORE
+          &copy;{new Date().getFullYear()}, inspired by <a href="https://www.a-more.shop/en" className="hover:underline hover:text-red-400">A-MORE</a>
         </p>
       </div>
     </footer>

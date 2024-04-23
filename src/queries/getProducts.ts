@@ -3,9 +3,9 @@ import { groq } from "next-sanity";
 import { NewInItems } from "../../typings";
 import { client } from "../../sanity/lib/client";
 
-export const getNewInProducts = async () => {
+export const getNewInProducts = async (type: string) => {
   try {
-    const query = groq`*[_type == "newIn"] {
+    const query = groq`*[_type == "${type}"] {
       ...,  
       images
     }`;

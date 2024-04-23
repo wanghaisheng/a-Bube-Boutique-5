@@ -9,11 +9,11 @@ import { FaArrowRightLong } from "react-icons/fa6";
 export const revalidate = 60;
 
 export default function ProductCard({
-  newInItems,
+  newInItem,
 }: {
-  newInItems: NewInItems;
+  newInItem: NewInItems;
 }) {
-  const { name, images, cardText, slug } = newInItems;
+  const { name, images, cardText, slug } = newInItem;
 
   return (
     <div className="w-[25rem] sm:w-full sm:col-span-6 lg:col-span-4 bg-gray-100 snap-center snap-always">

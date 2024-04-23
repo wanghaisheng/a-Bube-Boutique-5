@@ -1,6 +1,6 @@
 "use client";
 import { FaAngleDown } from "react-icons/fa6";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NewInItems } from "../../../typings";
 import { useAppDispatch } from "@/lib/hook";
 import { addToCart } from "@/lib/features/cartSlice";
@@ -10,7 +10,7 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
   const dispatch = useAppDispatch();
   const [value, setValue] = useState(1);
   const [colorVal, setColorVal] = useState("");
-  const [showDesc, setShowDesc] = useState(false);
+  const [showDesc, setShowDesc] = useState(true);
   const [showSpec, setShowSpec] = useState(false);
   const [showShip, setShowShip] = useState(false);
   const [error, setError] = useState("");
@@ -42,6 +42,13 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
     dispatch(addToCart(newItem));
     setValue(1);
   };
+
+  useEffect(() => {
+    if(item.colors.length === 1) {
+      setColorVal(item.colors[0])
+    }
+  }, [])
+  
 
   return (
     <div className="w-full lg:w-[50%]">
@@ -140,7 +147,7 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
             />
           </div>
           <p className={`text-sm px-2 pb-2 ${showShip ? "block" : "hidden"}`}>
-            We offer free shipping accross nigeria for extra fees
+            We offer free shipping across nigeria.
           </p>
         </div>
       </div>

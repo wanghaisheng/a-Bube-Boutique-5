@@ -22,8 +22,8 @@ export const getNewInProducts = async (type: string) => {
   }
 };
 
-export const getProduct = async (slug: string) => {
-  const query = groq`*[_type == "newIn" && slug == "${slug}"]`;
+export const getProduct = async (type: string, slug: string) => {
+  const query = groq`*[_type == "${type}" && slug == "${slug}"]`;
 
   const item: NewInItems[] = await client.fetch(query, { cache: "no-store" });
   return item;

@@ -17,7 +17,14 @@ export default async function Jewelry() {
           <div className="flex snap-x snap-mandatory sm:grid sm:grid-cols-12 overflow-auto hide-x-scrollbar pl-[2%] lg:pl-[15%]">
             <div className="flex gap-x-4 sm:gap-x-6">
               {jewelry.map((item) => {
-                return <ProductCard2 jewelry={item} key={item._id} />;
+                return (
+                  <ProductCard2
+                    jewelry={item}
+                    key={item.id}
+                    widthStyle="w-[15rem] sm:w-[25rem] lg:w-[20rem]"
+                    heightStyle="h-[18rem] sm:h-[22rem]"
+                  />
+                );
               })}
             </div>
           </div>

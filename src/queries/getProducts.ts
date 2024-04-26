@@ -5,10 +5,7 @@ import { client } from "../../sanity/lib/client";
 
 export const getNewInProducts = async (type: string) => {
   try {
-    const query = groq`*[_type == "${type}"] {
-      ...,  
-      images
-    }`;
+    const query = groq`*[_type == "${type}"]`;
 
     const newInItems: NewInItems[] = await client.fetch(query, {
       cache: "no-store",
@@ -17,6 +14,24 @@ export const getNewInProducts = async (type: string) => {
     return newInItems;
   } catch (error) {
     console.error("Error fetching new in products:", error);
+    // You can handle the error here, such as displaying a message to the user or returning a default value
+    return [];
+  }
+};
+
+export const getAllProducts = async () => {
+  try {
+    const query = groq`*[_type in ["jewelry", "newIn"]] {slug, images, name, "id": _id, price, }`;
+
+    const allItems: NewInItems[] = await client.fetch(query, {
+      cache: "no-store",
+    });
+
+    // console.log("CHECK", allItems);
+
+    return allItems;
+  } catch (error) {
+    console.error("Error fetching all products:", error);
     // You can handle the error here, such as displaying a message to the user or returning a default value
     return [];
   }

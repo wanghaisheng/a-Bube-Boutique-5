@@ -21,7 +21,7 @@ const footerData: FooterType[] = [
     links: [
       "Contact us",
       "Manage your return",
-      "Return & Refuds",
+      "Return & Refunds",
       "Orders & Shipping",
       "FAQ",
     ],

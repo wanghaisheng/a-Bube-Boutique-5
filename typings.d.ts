@@ -2,7 +2,7 @@ import { Image } from "sanity";
 
 type SanityBase = {
   _createdAt: string;
-  _id: string;
+  id: string;
   _rev: string;
   _updatedAt: string;
 };

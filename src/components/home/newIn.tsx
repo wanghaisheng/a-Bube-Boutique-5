@@ -17,7 +17,7 @@ export default async function NewIn() {
         ) : (
           <div className="flex snap-x snap-mandatory sm:grid sm:grid-cols-12 gap-4 overflow-auto">
             {newInItems.map((item) => {
-              return <ProductCard newInItem={item} key={item._id} />;
+              return <ProductCard newInItem={item} key={item.id} />;
             })}
           </div>
         )}

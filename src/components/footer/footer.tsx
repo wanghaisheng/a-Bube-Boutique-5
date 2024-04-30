@@ -36,7 +36,7 @@ export default function Footer() {
           {footerData.map((item, index) => {
             const { title, links } = item;
             return (
-              <div key={index} className="flex-[1] space-y-4">
+              <div key={index + title} className="flex-[1] space-y-4">
                 <h2 className="text-lg font-semibold">{title}</h2>
                 <div className="w-auto space-y-3">
                   {links.map((link, idx) => (

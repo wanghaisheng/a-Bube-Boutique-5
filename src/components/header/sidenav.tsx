@@ -1,9 +1,10 @@
 "use client";
-import { IoPersonOutline } from "react-icons/io5";
 import { FaFacebookF, FaYoutube, FaArrowRightLong } from "react-icons/fa6";
 import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { useState } from "react";
 import ProductSideNav from "./productsidenav";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function SideNav({
   show,
@@ -15,8 +16,16 @@ export default function SideNav({
   const [showProductNav, setShowProductNav] = useState(false);
 
   return (
-    <div className={`fixed z-50 h-[85vh] sm:h-[90vh] w-full ${show ? "block lg:hidden" : "hidden"}`}>
-      <div className={`relative w-full h-full ${show ? "block lg:hidden" : "hidden"}`}>
+    <div
+      className={`fixed z-50 h-[85vh] sm:h-[90vh] w-full ${
+        show ? "block lg:hidden" : "hidden"
+      }`}
+    >
+      <div
+        className={`relative w-full h-full ${
+          show ? "block lg:hidden" : "hidden"
+        }`}
+      >
         <div
           className={`bg-black absolute top-0 right-0 left-0 bottom-0 ${
             show
@@ -29,7 +38,7 @@ export default function SideNav({
           className={`w-full overflow-auto flex flex-col justify-between sm:w-[400px] bg-white h-full border-[#d4d1d1] border-[0.5px] z-[200] ease-linear duration-200 ${
             show ? "translate-x-0" : "-translate-x-[500px]"
           }`}
-          style={{zIndex: 500}}
+          style={{ zIndex: 500 }}
         >
           <ul className={`py-8 ${showProductNav ? "hidden" : "block"}`}>
             <li className="text-lg px-6 py-2 hover:bg-gray-100">
@@ -57,9 +66,20 @@ export default function SideNav({
           />
 
           <div className="py-8 px-6 space-y-8 sm:space-y-0 bg-gray-100">
-            <div className="flex gap-2 items-center sm:hidden">
-              <IoPersonOutline size={25} />
-              <p>Login</p>
+            <div className="flex sm:hidden items-end p-0 m-0">
+              <SignedIn>
+                {/* Mount the UserButton component */}
+                <UserButton />
+              </SignedIn>
+              <SignedOut>
+                {/* Signed out users get sign in button */}
+                <Link
+                  href="/sign-in"
+                  className="hover:bg-gray-300 py-1 px-3 rounded-2xl text-sm"
+                >
+                  Sign in
+                </Link>
+              </SignedOut>
             </div>
             <div className="flex justify-start items-end gap-x-4">
               <FaFacebookF size={20} />

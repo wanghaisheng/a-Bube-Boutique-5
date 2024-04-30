@@ -30,7 +30,7 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
       return;
     }
     const newItem = {
-      id: item._id,
+      id: item.id,
       name: item.name,
       image: item.images[0],
       color: colorVal,

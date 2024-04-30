@@ -43,7 +43,7 @@ export default function Collections() {
             const { text, image } = collection;
             return (
               <div
-                key={idx}
+                key={idx + text}
                 className="group col-span-12 lg:col-span-4 cursor-pointer space-y-4"
               >
                 <div className="relative w-full h-[75vh] lg:h-96 overflow-hidden">

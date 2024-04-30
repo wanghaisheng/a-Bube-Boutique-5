@@ -1,7 +1,7 @@
 "use client";
 import SubHeader from "./subheader";
 import { IoIosSearch, IoMdClose } from "react-icons/io";
-import { IoPersonOutline, IoBagHandleOutline } from "react-icons/io5";
+import { IoBagHandleOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa6";
 import NavHeader from "./navheader";
 import SideNav from "./sidenav";
@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAppSelector, useAppDispatch } from "@/lib/hook";
 import { getCartFromLocalStorage } from "@/lib/features/cartSlice";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export default function Header() {
   const cart = useAppSelector((state) => state.cart.cart);
@@ -62,11 +63,21 @@ export default function Header() {
               color="#000"
               className="cursor-pointer block lg:hidden"
             />
-            <IoPersonOutline
-              size={24}
-              color="#000"
-              className="cursor-pointer hidden sm:block"
-            />
+            <div className="hidden sm:flex items-end p-0 m-0">
+              <SignedIn>
+                {/* Mount the UserButton component */}
+                <UserButton />
+              </SignedIn>
+              <SignedOut>
+                {/* Signed out users get sign in button */}
+                <Link
+                  href="/sign-in"
+                  className="hover:bg-gray-300 py-1 px-3 rounded-2xl text-sm"
+                >
+                  Sign in
+                </Link>
+              </SignedOut>
+            </div>
             <Link href="/cart" className="relative cursor-pointer">
               <IoBagHandleOutline size={24} color="#000" />
               {cart.length > 0 && (

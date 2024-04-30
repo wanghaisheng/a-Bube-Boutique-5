@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.0.3",
     "@reduxjs/toolkit": "^2.2.3",
     "@sanity/vision": "^3.35.2",
     "next": "14.1.3",

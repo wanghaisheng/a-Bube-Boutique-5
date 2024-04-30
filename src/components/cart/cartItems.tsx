@@ -7,8 +7,8 @@ export default function CartItems() {
   return (
     <>
       <div className="w-full flex flex-col gap-y-4 py-6 sm:py-8">
-        {cart.map((item, idx) => (
-          <CartItem item={item} key={`${item.id}${item.color}`} />
+        {cart.map((item) => (
+          <CartItem item={item} key={item.id} />
         ))}
       </div>
       <div className="w-full flex flex-col items-end gap-y-4">

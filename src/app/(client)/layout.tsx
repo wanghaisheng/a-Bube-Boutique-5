@@ -3,6 +3,7 @@ import "../globals.css";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import StoreProvider from "./StoreProvider";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,15 +16,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="overflow-x-hidden font-custom">
-        <StoreProvider>
-          <Header />
-          {children}
-          <Footer />
-        </StoreProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className="overflow-x-hidden font-custom">
+          <StoreProvider>
+            <Header />
+            {children}
+            <Footer />
+          </StoreProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
 

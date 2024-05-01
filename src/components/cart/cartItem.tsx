@@ -39,10 +39,10 @@ export default function CartItem({ item }: { item: CartType }) {
         <Image src={urlForImage(item.image)} alt={item.name} fill />
       </div>
       <div className="col-span-7 sm:col-span-8 lg:col-span-9 sm:grid sm:grid-cols-12">
-        <div className="sm:col-span-7 lg:col-span-8 py-0 px-4 sm:p-4">
+        <div className="sm:col-span-7 lg:col-span-8 py-0 px-4 sm:p-4 space-y-1">
           <p className="text-lg">BUBE {item.name}</p>
           <p>&#8358; {item.price.toLocaleString()}</p>
-          <p className="text-sm">Color: {item.color}</p>
+          <p className="text-sm capitalize">Color: {item.color}</p>
         </div>
         <div className="sm:col-span-5 lg:col-span-4 p-4 flex items-center gap-x-6 lg:gap-x-4">
           <Quantity value={value} changeValue={changeValue} />
@@ -68,7 +68,7 @@ export default function CartItem({ item }: { item: CartType }) {
         </div>
       </div>
       <div className="col-span-2 sm:place-content-center text-right whitespace-nowrap">
-        &#8358; {item.total.toLocaleString()}
+        &#8358;{item.total.toLocaleString()}
       </div>
     </div>
   );

@@ -38,17 +38,15 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
       price: item.price,
       total: value * item.price,
     };
-    console.log(newItem);
     dispatch(addToCart(newItem));
     setValue(1);
   };
 
   useEffect(() => {
-    if(item.colors.length === 1) {
-      setColorVal(item.colors[0])
+    if (item.colors.length === 1) {
+      setColorVal(item.colors[0]);
     }
-  }, [])
-  
+  }, []);
 
   return (
     <div className="w-full lg:w-[50%]">

@@ -4,22 +4,20 @@ import CartItem from "./cartItem";
 import { useState } from "react";
 import { paystackPay } from "@/app/(client)/actions/actions";
 import { useUser } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
 
 export default function CartItems() {
   const { cart, total } = useAppSelector((state) => state.cart);
   const [submitting, setSubmitting] = useState<boolean>(false);
+
   const { isSignedIn, user } = useUser();
-  const router = useRouter();
-  
 
   const handleCheckout = async (): Promise<void> => {
     // Your code logic goes here
     setSubmitting(true);
     if (isSignedIn) {
       const paystackResponse = await paystackPay({
-        amount: total, //amount to be transacted by paystack
-        email: "justinequartz@gmail.com", //email of the person making the payment
+        amount: total + total * 0.1, //amount to be transacted by paystack
+        email: user.primaryEmailAddress?.emailAddress ?? "", //email of the person making the payment
         currency: "NGN", //currency eg KES or USD if you are in kenya
         callback_url: "http://localhost:3000/confirmpayment", //route where paystack will redirect with reference code after a successful payment
         channels: ["mobile_money"], //channel to be used for making payment eg bank mobile_money
@@ -30,7 +28,6 @@ export default function CartItems() {
       }
     } else {
       setSubmitting(false);
-      router.push("/sign-in")
     }
   };
   return (

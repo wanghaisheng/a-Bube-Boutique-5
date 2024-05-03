@@ -1,12 +1,17 @@
 "use client";
-import { useAppSelector } from "@/lib/hook";
 import CartItem from "./cartItem";
 import { useState } from "react";
 import { paystackPay } from "@/app/(client)/actions/actions";
 import { useUser } from "@clerk/nextjs";
+import { CartType } from "../../../typings";
 
-export default function CartItems() {
-  const { cart, total } = useAppSelector((state) => state.cart);
+export default function CartItems({
+  cart,
+  total,
+}: {
+  cart: CartType[];
+  total: number;
+}) {
   const [submitting, setSubmitting] = useState<boolean>(false);
 
   const { isSignedIn, user } = useUser();

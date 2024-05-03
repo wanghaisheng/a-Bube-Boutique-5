@@ -1,9 +1,8 @@
-import { SignIn } from "@clerk/nextjs";
+import SignInPage from "../signInPage";
+
 
 export default function Page() {
   return (
-    <div className="w-full flex justify-center py-12">
-      <SignIn signUpUrl="/sign-up" />;
-    </div>
+   <SignInPage />
   );
 }

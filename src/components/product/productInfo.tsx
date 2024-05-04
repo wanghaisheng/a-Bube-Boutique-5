@@ -5,6 +5,9 @@ import { NewInItems } from "../../../typings";
 import { useAppDispatch } from "@/lib/hook";
 import { addToCart } from "@/lib/features/cartSlice";
 import Quantity from "./quantity";
+import { useUser } from "@clerk/nextjs";
+import { useRouter} from "next/navigation";
+import { setLocal } from "@/util/setPathToLocal";
 
 export default function ProductInfo({ item }: { item: NewInItems }) {
   const dispatch = useAppDispatch();
@@ -15,6 +18,10 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
   const [showShip, setShowShip] = useState(false);
   const [error, setError] = useState("");
 
+  const { isSignedIn } = useUser();
+
+  const router = useRouter();
+
   const changeValue = (action: string) => {
     if (action === "increase") {
       setValue(value + 1);
@@ -24,22 +31,27 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
     }
   };
 
+
   const addItemToCart = () => {
-    if (!colorVal) {
-      setError("choose a color");
-      return;
+    if (isSignedIn) {
+      if (!colorVal) {
+        setError("choose a color");
+        return;
+      }
+      const newItem = {
+        id: item.id,
+        name: item.name,
+        image: item.images[0],
+        color: colorVal,
+        quantity: value,
+        price: item.price,
+        total: value * item.price,
+      };
+      dispatch(addToCart(newItem));
+      setValue(1);
+    } else {
+      setLocal(router);
     }
-    const newItem = {
-      id: item.id,
-      name: item.name,
-      image: item.images[0],
-      color: colorVal,
-      quantity: value,
-      price: item.price,
-      total: value * item.price,
-    };
-    dispatch(addToCart(newItem));
-    setValue(1);
   };
 
   useEffect(() => {

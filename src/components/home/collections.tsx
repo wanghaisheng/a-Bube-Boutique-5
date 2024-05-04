@@ -1,4 +1,6 @@
+"use client"
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 type CollectionsType = {
   text: string;
@@ -33,6 +35,8 @@ const collections: CollectionsType[] = [
 ];
 
 export default function Collections() {
+  const router = useRouter();
+
   return (
     <section className="py-8 sm:py-12 bg-[#F3F3F3]">
       <div className="w-[95%] sm:w-[90%] lg:w-[70%] mx-auto space-y-6 sm:space-y-8">
@@ -45,6 +49,7 @@ export default function Collections() {
               <div
                 key={idx + text}
                 className="group col-span-12 lg:col-span-4 cursor-pointer space-y-4"
+                onClick={() => router.push("/shop")}
               >
                 <div className="relative w-full h-[75vh] lg:h-96 overflow-hidden">
                   <Image

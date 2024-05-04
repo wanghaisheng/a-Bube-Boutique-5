@@ -5,9 +5,5 @@ export default async function ProductDetails({
 }: {
   params: { slug: string[] };
 }) {
-  return (
-    <div className="">
-      <ProductDetailsPage type={params.slug[0]} slug={params.slug[1]} />
-    </div>
-  );
+  return <ProductDetailsPage type={params.slug[0]} slug={params.slug[1]} />;
 }

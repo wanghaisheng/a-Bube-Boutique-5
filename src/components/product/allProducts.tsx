@@ -4,6 +4,11 @@ import Filter from "../shop/filter";
 
 export default async function AllProducts() {
   const allProducts = await getAllProducts();
+
+  if (allProducts.length === 0) {
+    throw new Error("Couldn't retrieve Items 😔");
+  }
+
   return (
     <>
       <Filter amount={allProducts.length} />

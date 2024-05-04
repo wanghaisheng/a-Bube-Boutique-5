@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 type Images = {
   src: string;
@@ -68,9 +69,11 @@ export default function Hero() {
                   <p className="text-2xl lg:text-3xl text-white text-nowrap">
                     BUBE {text}
                   </p>
-                  <button className="border-white border-[1.5px] text-nowrap py-2 lg:py-3 px-8 text-white transition-all duration-500 hover:ring-2 hover:ring-white ">
-                    BUBE {text}
-                  </button>
+                  <Link href="/shop">
+                    <button className="border-white border-[1.5px] text-nowrap py-2 lg:py-3 px-8 text-white transition-all duration-500 hover:ring-2 hover:ring-white ">
+                      BUBE {text}
+                    </button>
+                  </Link>
                 </div>
               </div>
             </SwiperSlide>

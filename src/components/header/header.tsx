@@ -10,11 +10,15 @@ import Link from "next/link";
 import { useAppSelector, useAppDispatch } from "@/lib/hook";
 import { getCartFromLocalStorage } from "@/lib/features/cartSlice";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import { setLocal } from "@/util/setPathToLocal";
 
 export default function Header() {
   const cart = useAppSelector((state) => state.cart.cart);
   const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
+
+  const router = useRouter();
 
   const toggle = () => {
     setShow(!show);
@@ -70,12 +74,13 @@ export default function Header() {
               </SignedIn>
               <SignedOut>
                 {/* Signed out users get sign in button */}
-                <Link
-                  href="/sign-in"
-                  className="hover:bg-gray-300 py-1 px-3 rounded-2xl text-sm"
+                <p
+                  // href="/sign-in"
+                  className="hover:bg-gray-300 py-1 px-3 rounded-2xl text-sm cursor-pointer"
+                  onClick={() => setLocal(router)}
                 >
                   Sign in
-                </Link>
+                </p>
               </SignedOut>
             </div>
             <Link href="/cart" className="relative cursor-pointer">
@@ -90,7 +95,7 @@ export default function Header() {
         </div>
         <NavHeader />
       </nav>
-      <SideNav show={show} toggle={toggle} />
+      <SideNav show={show} setLocal={setLocal} toggle={toggle} />
     </header>
   );
 }

@@ -4,16 +4,21 @@ import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { useState } from "react";
 import ProductSideNav from "./productsidenav";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import Link from "next/link";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { useRouter } from "next/navigation";
 
 export default function SideNav({
   show,
   toggle,
+  setLocal,
 }: {
   show: boolean;
   toggle: () => void;
+  setLocal: (router: AppRouterInstance) => void;
 }) {
   const [showProductNav, setShowProductNav] = useState(false);
+
+  const router = useRouter();
 
   return (
     <div
@@ -73,12 +78,13 @@ export default function SideNav({
               </SignedIn>
               <SignedOut>
                 {/* Signed out users get sign in button */}
-                <Link
-                  href="/sign-in"
-                  className="hover:bg-gray-300 py-1 px-3 rounded-2xl text-sm"
+                <p
+                  // href="/sign-in"
+                  className="hover:bg-gray-300 py-1 px-3 rounded-2xl text-sm cursor-pointer"
+                  onClick={() => setLocal(router)}
                 >
                   Sign in
-                </Link>
+                </p>
               </SignedOut>
             </div>
             <div className="flex justify-start items-end gap-x-4">

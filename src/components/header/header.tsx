@@ -28,6 +28,14 @@ export default function Header() {
     dispatch(getCartFromLocalStorage());
   }, []);
 
+  useEffect(() => {
+    if(show) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+  }, [show])
+
   return (
     <header className="w-full">
       <SubHeader />

@@ -1,4 +1,3 @@
-"use server";
 import { groq } from "next-sanity";
 import { NewInItems } from "../../typings";
 import { client } from "../../sanity/lib/client";
@@ -21,7 +20,7 @@ export const getNewInProducts = async (type: string) => {
 
 export const getAllProducts = async () => {
   try {
-    const query = groq`*[_type in ["jewelry", "newIn"]] {slug, images, name, "id": _id, price, }`;
+    const query = groq`*[_type in ["jewelry", "newIn"]] {slug, images, name, "id": _id, price, _type }`;
 
     const allItems: NewInItems[] = await client.fetch(query, {
       cache: "no-store",

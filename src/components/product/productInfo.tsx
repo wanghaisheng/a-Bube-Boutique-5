@@ -55,18 +55,18 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
   };
 
   useEffect(() => {
-    if (item.colors.length === 1) {
+    if (item?.colors.length === 1) {
       setColorVal(item.colors[0]);
     }
-  }, []);
+  }, [item?.colors]);
 
   return (
     <div className="w-full lg:w-[50%]">
       <div className="space-y-2">
         <p className="text-red-600 font-semibold">SALE</p>
-        <h4 className=" text-3xl sm:text-5xl font-medium">BUBE {item.name}</h4>
+        <h4 className=" text-3xl sm:text-5xl font-medium">BUBE {item?.name}</h4>
         <p className="text-2xl lg:text-xl">
-          &#8358; {item.price.toLocaleString()}
+          &#8358; {item?.price.toLocaleString()}
         </p>
         <p className="text-normal lg:text-sm">
           Tax included. <span className="underline">Shipping</span> calculated
@@ -76,7 +76,7 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
       <div className="space-y-2 mt-4">
         <p>Material</p>
         <div className="flex gap-x-2">
-          {item.colors.map((color, index) => (
+          {item?.colors.map((color, index) => (
             <div
               key={index}
               className={`border-2 text-black w-20 h-10 flex items-center justify-center rounded-full cursor-pointer ${
@@ -120,7 +120,7 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
             />
           </div>
           <p className={`text-sm px-2 pb-2 ${showDesc ? "block" : "hidden"}`}>
-            {item.description}
+            {item?.description}
           </p>
         </div>
         <div className="w-full border-b-[1px] border-stone-300 py-2 space-y-2">

@@ -13,7 +13,7 @@ export default function ProductCard({
 }: {
   newInItem: NewInItems;
 }) {
-  const { name, images, cardText, slug } = newInItem;
+  const { name, images, cardText, slug, _type } = newInItem;
 
   return (
     <div className="w-[25rem] sm:w-full sm:col-span-6 lg:col-span-4 bg-gray-100 snap-center snap-always">
@@ -25,7 +25,7 @@ export default function ProductCard({
         <p className="text-sm text-[#737070]">{cardText}</p>
 
         <Link
-          href={`/products/newIn/${slug}`}
+          href={`/products/${_type}/${slug}`}
           className="group w-full flex items-center gap-2 justify-center text-center"
         >
           <p className="group-hover:underline">Buy Now</p>

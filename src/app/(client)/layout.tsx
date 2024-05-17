@@ -17,8 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className="overflow-x-hidden font-custom">
+      <html lang="en" className="scroll-smooth">
+        <body className="overflow-x-hidden font-custom scroll-smooth">
           <StoreProvider>
             <Header />
             {children}

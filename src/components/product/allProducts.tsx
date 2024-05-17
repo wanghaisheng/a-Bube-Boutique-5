@@ -11,9 +11,9 @@ export default async function AllProducts() {
 
   return (
     <>
-      <Filter amount={allProducts.length} />
+      <Filter amount={allProducts?.length} />
       <div className="grid grid-cols-12 gap-x-2 gap-y-6 sm:gap-y-8">
-        {allProducts.map((item) => {
+        {allProducts?.map((item) => {
           return (
             <ProductCard2
               jewelry={item}

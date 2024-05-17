@@ -2,6 +2,7 @@ import { getProduct } from "@/queries/getProducts";
 import ProductImages from "@/components/product/productImages";
 import ProductInfo from "@/components/product/productInfo";
 import YouMayAlsoLike from "@/components/product/alsoLike";
+import ProductDetails from "@/components/product/productDetails";
 
 export default async function ProductDetailsPage({
   type,
@@ -12,12 +13,11 @@ export default async function ProductDetailsPage({
 }) {
   const product = await getProduct(type, slug);
   const item = product[0];
+  // console.log("SLUUUG", slug);
+
   return (
-    <div className=" w-[90%] sm:w-[80%] mx-auto py-10 sm:py-16 space-y-20">
-      <div className="flex flex-col lg:flex-row gap-8">
-        <ProductImages item={item} />
-        <ProductInfo item={item} />
-      </div>
+    <div className="w-[90%] sm:w-[80%] mx-auto my-10 sm:my-16 space-y-20 scroll-smooth">
+      <ProductDetails item={item}/>
       <YouMayAlsoLike type={type} slug={slug} />
     </div>
   );

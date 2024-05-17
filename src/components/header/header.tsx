@@ -26,6 +26,7 @@ export default function Header() {
 
   useEffect(() => {
     dispatch(getCartFromLocalStorage());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

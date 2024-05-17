@@ -15,13 +15,18 @@ export default function ProductCard2({
   heightStyle: string;
 }) {
   const [current, setCurrent] = useState(0);
-  const { name, images, price, slug } = jewelry;
+  const { name, images, price, slug, _type } = jewelry;
+  // console.log("OBJECT---------", jewelry);
+  // console.log("SLUG FOR CARD 2 slug", slug)
+  // console.log("SLUG FOR CARD 2 type", _type)
+  // console.log("SLUG FOR CARD 2 name", name)
   return (
     <Link
-      href={`/products/jewelry/${slug}`}
+      href={`/products/${_type}/${slug}`}
       className={`group ${widthStyle} space-y-4`}
       onMouseEnter={() => setCurrent(1)}
       onMouseLeave={() => setCurrent(0)}
+      onClick={() => console.log("first", jewelry)}
     >
       <div className={`relative ${widthStyle} ${heightStyle}`}>
         <Image

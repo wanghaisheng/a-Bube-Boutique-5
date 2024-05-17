@@ -26,7 +26,6 @@ export default function ProductCard2({
       className={`group ${widthStyle} space-y-4`}
       onMouseEnter={() => setCurrent(1)}
       onMouseLeave={() => setCurrent(0)}
-      onClick={() => console.log("first", jewelry)}
     >
       <div className={`relative ${widthStyle} ${heightStyle}`}>
         <Image

@@ -1,6 +1,6 @@
-import HomePage from "@/pages/homepage";
+import HomePage from "@/route-pages/homepage";
 
-export default function Home() {
+export default function Page() {
   return (
     <main className="">
       <HomePage />

@@ -1,5 +1,5 @@
-import ShopPage from "@/pages/shopPage";
+import ShopPage from "@/route-pages/shopPage";
 
-export default function page() {
+export default function Page() {
   return <ShopPage />;
 }

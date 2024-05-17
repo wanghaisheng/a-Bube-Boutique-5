@@ -1,7 +1,5 @@
-import CartPage from "@/pages/cartPage";
+import CartPage from "@/route-pages/cartPage";
 
 export default function Page() {
-  return (
-    <CartPage />
-  );
+  return <CartPage />;
 }

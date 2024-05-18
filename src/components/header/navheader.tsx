@@ -12,7 +12,8 @@ export default function NavHeader() {
           <div className="relative">
             <div
               className="flex items-center gap-1 cursor-pointer hover:underline"
-              onMouseOver={() => setOpen(true)}
+              onMouseEnter={() => setOpen(true)}
+              onMouseLeave={() => setOpen(false)}
             >
               <span>Products</span>{" "}
               <IoIosArrowDown
@@ -23,7 +24,7 @@ export default function NavHeader() {
               />
             </div>
             <ul
-              className={`w-48 absolute top-8 py-4 gap-y-3 border-[1px] bg-white border-[#c8c6c6] ${
+              className={`w-48 absolute top-6 py-4 gap-y-3 border-[1px] bg-white border-[#c8c6c6] ${
                 open ? "flex flex-col z-50" : "hidden"
               }`}
               onMouseEnter={() => setOpen(true)}

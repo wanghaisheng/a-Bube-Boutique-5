@@ -20,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className="scroll-smooth">
+      <html
+        lang="en"
+        className="scroll-smooth"
+        style={{ scrollBehavior: "smooth" }}
+      >
         <body className="overflow-x-hidden font-custom scroll-smooth">
           <StoreProvider>
             <Header />

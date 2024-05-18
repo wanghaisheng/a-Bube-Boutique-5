@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
+
 .hide-x-scrollbar::-webkit-scrollbar {
   display: none; /* Hide scrollbar in WebKit browsers */
 }

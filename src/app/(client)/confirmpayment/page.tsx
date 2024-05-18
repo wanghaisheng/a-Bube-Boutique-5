@@ -1,5 +1,5 @@
 export default function Page() {
   return (
-    <div>page</div>
+    <div>confimation page</div>
   )
 }

@@ -6,9 +6,7 @@ export const getNewInProducts = async (type: string) => {
   try {
     const query = groq`*[_type == "${type}"]`;
 
-    const newInItems: NewInItems[] = await client.fetch(query, {
-      cache: "no-store",
-    });
+    const newInItems: NewInItems[] = await client.fetch(query);
 
     return newInItems;
   } catch (error) {
@@ -22,9 +20,7 @@ export const getAllProducts = async () => {
   try {
     const query = groq`*[_type in ["jewelry", "newIn"]] {slug, images, name, "id": _id, price, _type }`;
 
-    const allItems: NewInItems[] = await client.fetch(query, {
-      cache: "no-store",
-    });
+    const allItems: NewInItems[] = await client.fetch(query);
 
     // console.log("CHECK", allItems);
 
@@ -39,6 +35,6 @@ export const getAllProducts = async () => {
 export const getProduct = async (type: string, slug: string) => {
   const query = groq`*[_type == "${type}" && slug == "${slug}"]`;
 
-  const item: NewInItems[] = await client.fetch(query, { cache: "no-store" });
+  const item: NewInItems[] = await client.fetch(query);
   return item;
 };

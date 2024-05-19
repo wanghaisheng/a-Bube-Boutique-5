@@ -17,19 +17,17 @@ export default function CartItem({ item }: { item: CartType }) {
         setItemQuantity({ id: item.id, color: item.color, quantity: value + 1 })
       );
       setValue(value + 1);
-    } else {
-      if (value === 1) {
-        return;
-      } else {
-        dispatch(
-          setItemQuantity({
-            id: item.id,
-            color: item.color,
-            quantity: value - 1,
-          })
-        );
-        setValue(value - 1);
-      }
+    } else if (action === "decrease" && value === 1) {
+      return;
+    } else if (action === "decrease" && value > 1) {
+      dispatch(
+        setItemQuantity({
+          id: item.id,
+          color: item.color,
+          quantity: value - 1,
+        })
+      );
+      setValue(value - 1);
     }
   };
 

@@ -33,15 +33,15 @@ export default function Footer() {
     <footer className="w-full bg-black text-white">
       <div className="w-[90%] lg:w-[70%] mx-auto py-8 lg:py-12">
         <div className="flex flex-col sm:flex-row gap-y-8 sm:gap-y-0 sm:justify-between">
-          {footerData.map((item, index) => {
+          {footerData.map((item) => {
             const { title, links } = item;
             return (
-              <div key={index + title} className="flex-[1] space-y-4">
+              <div key={title.trim()} className="flex-[1] space-y-4">
                 <h2 className="text-lg font-semibold">{title}</h2>
                 <div className="w-auto space-y-3">
-                  {links.map((link, idx) => (
+                  {links.map((link) => (
                     <p
-                      key={idx}
+                      key={link.trim()}
                       className="w-fit text-sm text-gray-300 cursor-pointer hover:underline hover:underline-offset-1 hover:text-white"
                     >
                       {link}
@@ -434,7 +434,13 @@ export default function Footer() {
       </div>
       <div>
         <p className="text-gray-300 text-sm text-center">
-          &copy;{new Date().getFullYear()}, inspired by <a href="https://www.a-more.shop/en" className="hover:underline hover:text-red-400">A-MORE</a>
+          &copy;{new Date().getFullYear()}, inspired by{" "}
+          <a
+            href="https://www.a-more.shop/en"
+            className="hover:underline hover:text-red-400"
+          >
+            A-MORE
+          </a>
         </p>
       </div>
     </footer>

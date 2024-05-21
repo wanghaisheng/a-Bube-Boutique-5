@@ -30,30 +30,29 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if(show) {
+    if (show) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "visible";
     }
-  }, [show])
+  }, [show]);
 
   return (
     <header className="w-full">
       <SubHeader />
-      <nav className="py-6 space-y-6 border-b-[0.5px] border-stone-200">
-        <div className="w-[90%] sm:w-[95%] lg:w-[70%] mx-auto flex justify-between">
+      <nav className="py-2 sm:py-6 space-y-6 border-b-[0.5px] border-stone-200">
+        <div className="w-[95%] sm:w-[95%] lg:w-[70%] mx-auto flex justify-between items-center">
           <IoIosSearch
             size={24}
             color="#000"
             className="cursor-pointer hidden lg:block"
           />
-          <div className="flex items-center gap-x-8 lg:gap-x-0">
+          <div className="flex items-center gap-x-4 sm:gap-x-8 lg:gap-x-0">
             <div onClick={toggle}>
               {!show ? (
                 <FaBars
-                  size={24}
                   color="#000"
-                  className="cursor-pointer block lg:hidden"
+                  className="cursor-pointer block lg:hidden text-xl sm:text-2xl"
                 />
               ) : (
                 <IoMdClose
@@ -65,16 +64,15 @@ export default function Header() {
             </div>
             <Link
               href="/"
-              className="text-4xl font-bold text-black cursor-pointer"
+              className="text-[28px] sm:text-4xl font-bold text-black cursor-pointer"
             >
               Bube
             </Link>
           </div>
           <div className="flex items-end gap-3 sm:gap-5">
             <IoIosSearch
-              size={24}
               color="#000"
-              className="cursor-pointer block lg:hidden"
+              className="cursor-pointer block lg:hidden text-xl sm:text-2xl"
             />
             <div className="hidden sm:flex items-end p-0 m-0">
               <SignedIn>
@@ -93,7 +91,10 @@ export default function Header() {
               </SignedOut>
             </div>
             <Link href="/cart" className="relative cursor-pointer">
-              <IoBagHandleOutline size={24} color="#000" />
+              <IoBagHandleOutline
+                color="#000"
+                className="text-xl sm:text-2xl"
+              />
               {cart.length > 0 && (
                 <span className="text-white bg-black h-4 w-4 rounded-full text-xs flex justify-center items-center absolute -bottom-[4px] -right-1">
                   {cart.length}

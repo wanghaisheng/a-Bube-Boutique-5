@@ -66,7 +66,7 @@ export default function Hero() {
               <div className="absolute bg-black opacity-25 top-0 right-0 left-0 bottom-0 z-20 inset-0"></div>
               <div className="z-50 absolute bottom-[10%] lg:bottom-[20%] left-[50%] -translate-x-[50%]">
                 <div className="flex flex-col items-center gap-6">
-                  <p className="text-2xl lg:text-3xl text-white text-nowrap">
+                  <p className="text-2xl lg:text-3xl text-white whitespace-nowrap">
                     BUBE {text}
                   </p>
                   <Link href="/shop">

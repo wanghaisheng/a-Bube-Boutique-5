@@ -22,7 +22,7 @@ export default function SideNav({
 
   return (
     <div
-      className={`fixed top-28 z-50 h-[85vh] sm:h-[90vh] w-full block lg:hidden ${
+      className={`fixed top-[90px] z-50 h-[90vh] w-full block lg:hidden ${
         show ? "translate-x-0 " : "-translate-x-[500px]"
       }`}
     >
@@ -67,7 +67,7 @@ export default function SideNav({
             setShowProductNav={setShowProductNav}
           />
 
-          <div className="py-8 px-6 space-y-8 sm:space-y-0 bg-gray-100">
+          <div className="pt-8 pb-16 px-6 space-y-8 sm:space-y-0 bg-gray-100">
             <div className="flex sm:hidden items-end p-0 m-0">
               <SignedIn>
                 {/* Mount the UserButton component */}
@@ -77,7 +77,7 @@ export default function SideNav({
                 {/* Signed out users get sign in button */}
                 <p
                   // href="/sign-in"
-                  className="hover:bg-gray-300 py-1 px-3 rounded-2xl text-sm cursor-pointer"
+                  className="hover:bg-gray-300 py-1 px-3 rounded-2xl text-base cursor-pointer"
                   onClick={() => setLocal(router)}
                 >
                   Sign in

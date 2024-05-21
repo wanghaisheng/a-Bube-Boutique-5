@@ -35,7 +35,7 @@ const images: Images[] = [
 
 export default function Hero() {
   return (
-    <section className="w-full h-[60vh] sm:h-[55vh] lg:h-[75vh]">
+    <section className="w-full h-[70vh] sm:h-[55vh] lg:h-[75vh]">
       <Swiper
         className="mySwiper bg-red-500 h-full w-full"
         direction={"horizontal"}

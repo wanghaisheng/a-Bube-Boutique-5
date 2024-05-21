@@ -70,7 +70,7 @@ export default function Hero() {
                     BUBE {text}
                   </p>
                   <Link href="/shop">
-                    <button className="border-white border-[1.5px] text-nowrap py-2 lg:py-3 px-8 text-white transition-all duration-500 hover:ring-2 hover:ring-white ">
+                    <button className="border-white border-[1.5px] text-nowrap py-2 lg:py-3 px-8 whitespace-nowrap text-white transition-all duration-500 hover:ring-2 hover:ring-white ">
                       BUBE {text}
                     </button>
                   </Link>

@@ -11,7 +11,7 @@ export default async function YouMayAlsoLike({
 }) {
   const products = await getNewInProducts(type);
   return (
-    <div className="w-full space-y-8">
+    <div className="w-full space-y-4 lg:space-y-8 mt-10 lg:mt-20">
       <h1 className="text-2xl">You may also like</h1>
       <div className="flex snap-x snap-mandatory sm:grid sm:grid-cols-12 overflow-auto hide-x-scrollbar">
         <div className="flex gap-x-4 sm:gap-x-10">

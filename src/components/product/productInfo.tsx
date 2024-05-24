@@ -13,7 +13,7 @@ export default function ProductInfo({ item }: { item: NewInItems }) {
   const dispatch = useAppDispatch();
   const [value, setValue] = useState(1);
   const [colorVal, setColorVal] = useState("");
-  const [showDesc, setShowDesc] = useState(true);
+  const [showDesc, setShowDesc] = useState(false);
   const [showSpec, setShowSpec] = useState(false);
   const [showShip, setShowShip] = useState(false);
   const [error, setError] = useState("");

@@ -16,7 +16,7 @@ export default async function ProductDetailsPage({
   // console.log("SLUUUG", slug);
 
   return (
-    <div className="w-[90%] sm:w-[80%] mx-auto my-10 sm:my-16 space-y-20 scroll-smooth" style={{ scrollBehavior: "smooth" }}>
+    <div className="w-[90%] sm:w-[80%] mx-auto my-10 sm:my-16 scroll-smooth" style={{ scrollBehavior: "smooth" }}>
       <ProductDetails item={item}/>
       <YouMayAlsoLike type={type} slug={slug} />
     </div>

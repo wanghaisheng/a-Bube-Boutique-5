@@ -1,7 +1,7 @@
-export default function EmptySection() {
+export default function EmptySection({section} : {section: string}) {
   return (
-    <div className="w-full h-[40vh] flex items-center justify-center">
-      <h4 className="italic text-2xl">Could not retrieve New In Items 😔</h4>
+    <div className="w-full h-[70vh] flex items-center justify-center">
+      <h4 className="italic text-2xl">Could not retrieve {section} Items 😔</h4>
     </div>
   );
 }

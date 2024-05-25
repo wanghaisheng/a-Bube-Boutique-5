@@ -23,7 +23,7 @@ export default function ProductCard2({
   return (
     <Link
       href={`/products/${_type}/${slug}`}
-      className={`group ${widthStyle} space-y-4`}
+      className={`group ${widthStyle} space-y-4 snap-center sm:snap-end`}
       onMouseEnter={() => setCurrent(1)}
       onMouseLeave={() => setCurrent(0)}
     >

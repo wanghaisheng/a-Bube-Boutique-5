@@ -48,7 +48,7 @@ export default function Collections() {
             return (
               <div
                 key={idx + text}
-                className="group col-span-12 lg:col-span-4 cursor-pointer space-y-4"
+                className="group col-span-12 lg:col-span-4 cursor-pointer space-y-2 sm:space-y-4"
                 onClick={() => router.push("/shop")}
               >
                 <div className="relative w-full h-[75vh] lg:h-96 overflow-hidden">
@@ -59,7 +59,7 @@ export default function Collections() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300 ease-in"
                   />
                 </div>
-                <p className="text-xl lg:text-lg">{text}</p>
+                <p className="text-lg">{text}</p>
               </div>
             );
           })}

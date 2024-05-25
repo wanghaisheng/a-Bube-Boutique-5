@@ -29,7 +29,7 @@ export default function ProductImages({ item }: { item: NewInItems }) {
           );
         })}
       </div>
-      <div className="relative w-full h-[28rem] sm:h-[38rem] lg:h-[35rem] border-[0.5px] border-gray-200">
+      <div className="relative w-full h-[25rem] sm:h-[38rem] lg:h-[35rem] border-[0.5px] border-gray-200">
         {item?.images && (
           <Image
             src={urlForImage(item?.images[current])}

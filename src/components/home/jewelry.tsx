@@ -12,7 +12,7 @@ export default async function Jewelry() {
           JEWELRY
         </h1>
         {jewelry.length === 0 ? (
-          <EmptySection />
+          <EmptySection section="Jewelry" />
         ) : (
           <div className="flex snap-x snap-mandatory sm:grid sm:grid-cols-12 overflow-auto hide-x-scrollbar pl-[2%] lg:pl-[15%]">
             <div className="flex gap-x-4 sm:gap-x-6">
